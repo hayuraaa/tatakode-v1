@@ -39,10 +39,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin-projects', [AdminProjectsController::class, 'index'])->name('admin-projects');
     Route::get('/admin-projects/create', [AdminProjectsController::class, 'create'])->name('admin-projects.create');
     Route::post('/admin-projects', [AdminProjectsController::class, 'store'])->name('admin-projects.store');
-    Route::get('/admin-projects/{id}/edit', [AdminProjectsController::class, 'edit'])->name('admin-projects.edit');
-    Route::put('/admin-projects/{id}', [AdminProjectsController::class, 'update'])->name('admin-projects.update');
-    Route::get('/admin-projects/{id}', [AdminProjectsController::class, 'show'])->name('admin-projects.show');
-    Route::delete('/admin-projects/{id}', [AdminProjectsController::class, 'destroy'])->name('admin-projects.destroy');
+    Route::get('/admin-projects/{project}/edit', [AdminProjectsController::class, 'edit'])->name('admin-projects.edit');
+    Route::put('/admin-projects/{project}', [AdminProjectsController::class, 'update'])->name('admin-projects.update');
+    Route::get('/admin-projects/{project}', [AdminProjectsController::class, 'show'])->name('admin-projects.show');
+    Route::delete('/admin-projects/{project}', [AdminProjectsController::class, 'destroy'])->name('admin-projects.destroy');
     Route::post('/admin-projects-bulk', [AdminProjectsController::class, 'bulkAction'])->name('admin-projects.bulk');
 
 

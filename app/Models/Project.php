@@ -16,7 +16,7 @@ class Project extends Model
         'category',
         'technologies',
         'image',
-        'gallery'
+        'gallery',
     ];
 
     protected $casts = [
@@ -107,37 +107,20 @@ class Project extends Model
     // Image helper methods
     public function getImageUrlAttribute()
     {
-        if (!$this->image) {
-            return null;
-        }
-
-        return asset('storage/' . $this->image);
+        return $this->image ? asset('storage/' . $this->image) : null;
     }
 
     // Gallery helper methods
     public function getGalleryUrlsAttribute()
     {
-        if (!$this->gallery) {
-            return [];
-        }
-
-        return collect($this->gallery)->map(function ($image) {
-            return asset('storage/' . $image);
-        })->toArray();
+        return $this->gallery ? collect($this->gallery)->map(fn($image) => asset('storage/' . $image))->toArray() : [];
     }
 
     public function getFirstImageAttribute()
     {
-        // Return thumbnail image if available
         if ($this->image) {
             return asset('storage/' . $this->image);
         }
-
-        // Fallback to first gallery image
-        if (!$this->gallery || empty($this->gallery)) {
-            return null;
-        }
-
-        return asset('storage/' . $this->gallery[0]);
+        return $this->gallery && !empty($this->gallery) ? asset('storage/' . $this->gallery[0]) : null;
     }
 }

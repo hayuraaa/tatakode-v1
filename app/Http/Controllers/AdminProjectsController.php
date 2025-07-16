@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -33,9 +34,6 @@ class AdminProjectsController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return Inertia::render('Admin/Projects/Create', [
@@ -45,29 +43,24 @@ class AdminProjectsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'status' => 'required|in:' . implode(',', array_keys(Project::getStatuses())),
-            'category' => 'required|string|max:255',
+            'category' => 'required|in:' . implode(',', Project::getCategories()),
             'technologies' => 'required|array',
-            'technologies.*' => 'required|string',
+            'technologies.*' => 'required|in:' . implode(',', Project::getTechnologies()),
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'gallery' => 'nullable|array',
             'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        // Handle thumbnail image upload
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('projects', 'public');
         }
 
-        // Handle gallery images upload
         if ($request->hasFile('gallery')) {
             $galleryImages = [];
             foreach ($request->file('gallery') as $file) {
@@ -82,9 +75,6 @@ class AdminProjectsController extends Controller
             ->with('success', 'Project created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Project $project)
     {
         return Inertia::render('Admin/Projects/Show', [
@@ -92,9 +82,6 @@ class AdminProjectsController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Project $project)
     {
         return Inertia::render('Admin/Projects/Edit', [
@@ -105,65 +92,80 @@ class AdminProjectsController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Project $project)
     {
+        // Validasi data
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'status' => 'required|in:' . implode(',', array_keys(Project::getStatuses())),
-            'category' => 'required|string|max:255',
-            'technologies' => 'required|array',
-            'technologies.*' => 'required|string',
+            'title' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'nullable|in:' . implode(',', array_keys(Project::getStatuses())),
+            'category' => 'nullable|in:' . implode(',', Project::getCategories()),
+            'technologies' => 'nullable|array',
+            'technologies.*' => 'nullable|in:' . implode(',', Project::getTechnologies()),
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'gallery' => 'nullable|array',
             'gallery.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'remove_existing_gallery' => 'nullable|array',
+            'remove_existing_gallery.*' => 'string',
         ]);
 
-        // Handle thumbnail image upload
+        // Siapkan data untuk update
+        $updateData = [
+            'title' => $validated['title'] ?? $project->title,
+            'description' => $validated['description'] ?? $project->description,
+            'status' => $validated['status'] ?? $project->status,
+            'category' => $validated['category'] ?? $project->category,
+            'technologies' => isset($validated['technologies']) && is_array($validated['technologies']) ? array_values($validated['technologies']) : ($project->technologies ?? []),
+            'image' => $project->image,
+            'gallery' => $project->gallery ?? [],
+        ];
+
+        // Handle image upload
         if ($request->hasFile('image')) {
-            // Delete old thumbnail image
             if ($project->image) {
                 Storage::disk('public')->delete($project->image);
             }
-            $validated['image'] = $request->file('image')->store('projects', 'public');
+            $updateData['image'] = $request->file('image')->store('projects', 'public');
         }
 
-        // Handle gallery images upload
-        if ($request->hasFile('gallery')) {
-            // Delete old gallery images
-            if ($project->gallery) {
-                foreach ($project->gallery as $oldImage) {
-                    Storage::disk('public')->delete($oldImage);
+        // Handle gallery
+        $currentGallery = $project->gallery ?? [];
+        if ($request->has('remove_existing_gallery')) {
+            $imagesToRemove = $request->input('remove_existing_gallery', []);
+            foreach ($imagesToRemove as $imageToRemove) {
+                if (in_array($imageToRemove, $currentGallery)) {
+                    Storage::disk('public')->delete($imageToRemove);
+                    $currentGallery = array_filter($currentGallery, fn($img) => $img !== $imageToRemove);
                 }
             }
-
-            $galleryImages = [];
-            foreach ($request->file('gallery') as $file) {
-                $galleryImages[] = $file->store('projects', 'public');
-            }
-            $validated['gallery'] = $galleryImages;
+            $updateData['gallery'] = array_values($currentGallery);
         }
 
-        $project->update($validated);
+        if ($request->hasFile('gallery')) {
+            $newGalleryImages = [];
+            foreach ($request->file('gallery') as $file) {
+                $newGalleryImages[] = $file->store('projects', 'public');
+            }
+            $updateData['gallery'] = array_merge($currentGallery, $newGalleryImages);
+        }
+
+        // Debug sementara untuk cek data
+        Log::info('Update data prepared:', $updateData);
+
+        // Update model
+        $project->fill($updateData);
+        $project->save(); // Force save untuk pastikan perubahan tersimpan
 
         return Redirect::route('admin-projects')
             ->with('success', 'Project updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Project $project)
     {
-        // Delete thumbnail image if exists
         if ($project->image) {
             Storage::disk('public')->delete($project->image);
         }
 
-        // Delete gallery images if exists
         if ($project->gallery) {
             foreach ($project->gallery as $image) {
                 Storage::disk('public')->delete($image);
@@ -176,9 +178,6 @@ class AdminProjectsController extends Controller
             ->with('success', 'Project deleted successfully.');
     }
 
-    /**
-     * Bulk actions for projects
-     */
     public function bulkAction(Request $request)
     {
         $validated = $request->validate([
@@ -192,13 +191,10 @@ class AdminProjectsController extends Controller
 
         switch ($validated['action']) {
             case 'delete':
-                // Delete images
                 $projects->get()->each(function ($project) {
-                    // Delete thumbnail image
                     if ($project->image) {
                         Storage::disk('public')->delete($project->image);
                     }
-                    // Delete gallery images
                     if ($project->gallery) {
                         foreach ($project->gallery as $image) {
                             Storage::disk('public')->delete($image);

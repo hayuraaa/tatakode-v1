@@ -54,6 +54,11 @@ const getFirstImage = (project) => {
     return null;
 };
 
+const truncateText = (text, maxLength = 60) => {
+    if (!text) return '';
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+};
+
 </script>
 
 <template>
@@ -138,17 +143,17 @@ const getFirstImage = (project) => {
                 <table class="min-w-full divide-y divide-slate-200">
                     <thead class="bg-slate-50">
                         <tr>
-                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Project</th>
-                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Category</th>
-                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Technologies</th>
-                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Status</th>
-                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Created</th>
-                            <th class="px-6 py-4 text-center text-xs font-semibold text-slate-600 uppercase tracking-wider">Actions</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-2/5">Project</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/6">Category</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/6">Technologies</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/12">Status</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/12">Created</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-slate-600 uppercase tracking-wider w-1/6">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-slate-200">
                         <tr v-for="project in projects" :key="project.id" class="hover:bg-slate-50 transition-colors duration-150">
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
                                         <img 
@@ -163,33 +168,39 @@ const getFirstImage = (project) => {
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="ml-4">
-                                        <div class="text-sm font-medium text-slate-900">{{ project.title }}</div>
-                                        <div class="text-sm text-slate-500">{{ project.description }}</div>
+                                    <div class="ml-4 min-w-0 flex-1">
+                                        <div class="text-sm font-medium text-slate-900 truncate">{{ project.title }}</div>
+                                        <div class="text-sm text-slate-500 break-words" :title="project.description">
+                                            {{ truncateText(project.description, 60) }}
+                                        </div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-slate-900">{{ project.category }}</div>
+                            <td class="px-6 py-4">
+                                <div class="text-sm text-slate-900 truncate">{{ project.category }}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex flex-wrap gap-1">
-                                    <span v-for="tech in project.technologies" :key="tech" 
+                            <td class="px-6 py-4">
+                                <div class="flex flex-wrap gap-1 max-w-xs">
+                                    <span v-for="tech in project.technologies?.slice(0, 2)" :key="tech" 
                                           class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                                         {{ tech }}
                                     </span>
+                                    <span v-if="project.technologies?.length > 2" 
+                                          class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                                        +{{ project.technologies.length - 2 }}
+                                    </span>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4">
                                 <span :class="getStatusColor(project.status)" 
-                                      class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium">
+                                      class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap">
                                     {{ getStatusText(project.status) }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
+                            <td class="px-6 py-4 text-sm text-slate-500 whitespace-nowrap">
                                 {{ formatDate(project.created_at) }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-center">
+                            <td class="px-6 py-4">
                                 <div class="flex items-center justify-center space-x-2">
                                     <Link 
                                         :href="`/admin-projects/${project.id}`" 
