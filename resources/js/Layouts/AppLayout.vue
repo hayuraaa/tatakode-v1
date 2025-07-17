@@ -3,22 +3,22 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div class="flex items-center space-x-2">
+        <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </div>
           <span class="text-xl font-bold text-white">Tatakode</span>
-        </div>
+        </a>
         
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#" class="text-white/80 hover:text-white transition-colors">Services</a>
+          <a href="/" class="text-white/80 hover:text-white transition-colors">Home</a>
+          <a href="/services" class="text-white/80 hover:text-white transition-colors">Services</a>
           <a href="/projects" class="text-white/80 hover:text-white transition-colors">Projects</a>
-          <a href="#" class="text-white/80 hover:text-white transition-colors">Products</a>
-          <a href="#" class="text-white/80 hover:text-white transition-colors">About</a>
-          <a href="#" class="text-white/80 hover:text-white transition-colors">Contact</a>
+          <a href="/products" class="text-white/80 hover:text-white transition-colors">Products</a>
+          <a href="/about" class="text-white/80 hover:text-white transition-colors">About</a>
         </div>
         
         <!-- Desktop Get Started Button -->
@@ -40,11 +40,11 @@
       <!-- Mobile Menu -->
       <div v-if="mobileMenuOpen" class="md:hidden bg-black/40 backdrop-blur-md border-t border-white/10">
         <div class="container mx-auto px-4 py-4 space-y-4">
-          <a href="#" class="block text-white/80 hover:text-white transition-colors py-2">Services</a>
+          <a href="/" class="block text-white/80 hover:text-white transition-colors py-2">Home</a>
+          <a href="/services" class="block text-white/80 hover:text-white transition-colors py-2">Services</a>
           <a href="/projects" class="block text-white/80 hover:text-white transition-colors py-2">Projects</a>
-          <a href="#" class="block text-white/80 hover:text-white transition-colors py-2">Products</a>
-          <a href="#" class="block text-white/80 hover:text-white transition-colors py-2">About</a>
-          <a href="#" class="block text-white/80 hover:text-white transition-colors py-2">Contact</a>
+          <a href="/products" class="block text-white/80 hover:text-white transition-colors py-2">Products</a>
+          <a href="/about" class="block text-white/80 hover:text-white transition-colors py-2">About</a>
         </div>
       </div>
     </nav>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="border-t border-white/10 mt-8 pt-8 text-center">
-          <p class="text-white/60">© 2024 Tatakode. All rights reserved. Made with ❤️ in Indonesia</p>
+          <p class="text-white/60">© 2025 Tatakode. All rights reserved. Made with Tatakode</p>
         </div>
       </div>
     </footer>

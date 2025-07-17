@@ -67,7 +67,7 @@
         </div>
 
         <div v-else>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               v-for="project in projects.data"
               :key="project.id"
@@ -113,14 +113,13 @@
 
               <!-- Project Info -->
               <div class="p-6">
-                <div class="flex items-center justify-between mb-3">
-                  <h3 class="text-white font-semibold text-lg truncate">{{ project.title }}</h3>
-                  <div class="flex items-center text-cyan-400 text-sm">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    {{ project.date }}
-                  </div>
+                <h3 class="text-white font-semibold text-lg mb-2">{{ project.title }}</h3>
+                
+                <div class="flex items-center text-cyan-400 text-sm mb-3">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {{ project.date }}
                 </div>
 
                 <p class="text-white/70 mb-4 text-sm line-clamp-3">{{ project.description }}</p>

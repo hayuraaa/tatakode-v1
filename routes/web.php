@@ -29,9 +29,9 @@ Route::get('/services', function () {
 Route::get('/about', function () {
     return Inertia::render('About');
 })->name('about');
-Route::get('/contact', function () {
-    return Inertia::render('Contact');
-})->name('contact');
+Route::get('products', function () {
+    return Inertia::render('Products');
+})->name('products');
 
 /*
 |--------------------------------------------------------------------------
