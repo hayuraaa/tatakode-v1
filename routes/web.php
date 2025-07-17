@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminProjectsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PageProjectController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,17 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+Route::get('/projects', [PageProjectController::class, 'projects'])->name('projects');
+Route::get('/projects/{slug}', [PageProjectController::class, 'project'])->name('project');
+Route::get('/services', function () {
+    return Inertia::render('Services');
+})->name('services');
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
 
 /*
 |--------------------------------------------------------------------------

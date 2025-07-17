@@ -24,14 +24,14 @@
             bantuan akademik. Plus produk source code berkualitas tinggi untuk mempercepat project Anda.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
+            <a href="#services"
               class="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg rounded-lg font-medium group transition-all flex items-center">
               Mulai Project
               <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </button>
+            </a>
             <button
               class="border border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg rounded-lg font-medium transition-all">
               Lihat Portfolio
@@ -120,10 +120,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                <svg v-else-if="service.icon === 'brain'" class="w-6 h-6 text-white" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <svg v-else-if="service.icon === 'design'" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 21h12a2 2 0 002-2v-4a2 2 0 00-2-2H7m0-5h10a2 2 0 012 2v1a2 2 0 01-2 2H7m0 0V9a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2z"/>
                 </svg>
                 <svg v-else-if="service.icon === 'graduation'" class="w-6 h-6 text-white" fill="none"
                   stroke="currentColor" viewBox="0 0 24 24">
@@ -171,6 +169,12 @@
 
             <!-- Project Image -->
             <div class="relative h-48 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 overflow-hidden">
+              <img 
+                v-if="project.image" 
+                :src="project.image" 
+                :alt="project.title"
+                class="w-full h-full object-cover"
+              />
               <div
                 class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,10 +224,10 @@
 
         <!-- View All Projects Button -->
         <div class="text-center mt-12">
-          <button
+          <Link href="/projects"
             class="border border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg rounded-lg font-medium transition-all">
             Lihat Semua Project
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -363,8 +367,16 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Head } from '@inertiajs/vue3'
+import { Head, Link, router } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue'
+
+// Props dari controller
+const props = defineProps({
+  latestProjects: {
+    type: Array,
+    default: () => []
+  }
+})
 
 const isVisible = ref(false)
 const activeService = ref(0)
@@ -409,16 +421,16 @@ const services = [
   },
   {
     icon: 'chart',
-    title: 'Data Processing',
-    description: 'Dashboard Data, Web Scraping, Automation',
-    features: ['Data Visualization', 'ETL Processes', 'Automated Reports', 'Real-time Analytics'],
+    title: 'Data & AI Solutions',
+    description: 'Data Processing, AI/ML, Dashboard, Web Scraping, Automation',
+    features: ['Data Visualization', 'Machine Learning', 'ETL Processes', 'Automated Reports'],
     color: 'from-green-500 to-emerald-500'
   },
   {
-    icon: 'brain',
-    title: 'AI/ML Solutions',
-    description: 'Klasifikasi, Prediksi, Visualisasi, Model Deployment',
-    features: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP'],
+    icon: 'design',
+    title: 'Design Services',
+    description: 'UI/UX Design, Social Media Graphics, Poster, Branding',
+    features: ['UI/UX Design', 'Social Media Feed', 'Poster Design', 'Brand Identity'],
     color: 'from-purple-500 to-pink-500'
   },
   {
@@ -427,63 +439,6 @@ const services = [
     description: 'Bantuan Skripsi, Jurnal, Tugas Akhir IT',
     features: ['Research Guidance', 'Code Review', 'Documentation', 'Presentation'],
     color: 'from-orange-500 to-red-500'
-  }
-]
-
-const latestProjects = [
-  {
-    slug: 'ecommerce-fashion-store',
-    title: 'Fashion E-Commerce Platform',
-    description: 'Platform e-commerce lengkap dengan fitur inventory management, payment gateway, dan admin dashboard untuk toko fashion online.',
-    category: 'E-Commerce',
-    categoryColor: 'bg-blue-500/20 text-blue-400',
-    date: 'Des 2024',
-    techStack: ['Next.js', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS']
-  },
-  {
-    slug: 'ai-chatbot-customer-service',
-    title: 'AI Customer Service Bot',
-    description: 'Chatbot AI untuk customer service dengan natural language processing dan integration ke WhatsApp Business API.',
-    category: 'AI/ML',
-    categoryColor: 'bg-purple-500/20 text-purple-400',
-    date: 'Nov 2024',
-    techStack: ['Python', 'OpenAI', 'FastAPI', 'WhatsApp API', 'PostgreSQL']
-  },
-  {
-    slug: 'company-profile-manufacturing',
-    title: 'Manufacturing Company Profile',
-    description: 'Website company profile dengan CMS untuk perusahaan manufacturing, dilengkapi dengan product catalog dan contact forms.',
-    category: 'Web Development',
-    categoryColor: 'bg-green-500/20 text-green-400',
-    date: 'Nov 2024',
-    techStack: ['React', 'Laravel', 'MySQL', 'Bootstrap']
-  },
-  {
-    slug: 'data-analytics-dashboard',
-    title: 'Sales Analytics Dashboard',
-    description: 'Dashboard analytics untuk monitoring sales performance dengan real-time charts dan reporting system.',
-    category: 'Data Analytics',
-    categoryColor: 'bg-orange-500/20 text-orange-400',
-    date: 'Okt 2024',
-    techStack: ['Vue.js', 'Python', 'Django', 'Chart.js', 'PostgreSQL']
-  },
-  {
-    slug: 'mobile-app-food-delivery',
-    title: 'Food Delivery Mobile App',
-    description: 'Aplikasi mobile untuk food delivery dengan fitur real-time tracking, payment integration, dan rating system.',
-    category: 'Mobile App',
-    categoryColor: 'bg-pink-500/20 text-pink-400',
-    date: 'Sep 2024',
-    techStack: ['React Native', 'Node.js', 'MongoDB', 'Socket.io', 'Stripe']
-  },
-  {
-    slug: 'inventory-management-system',
-    title: 'Inventory Management System',
-    description: 'Sistem manajemen inventory dengan barcode scanning, stock alerts, dan comprehensive reporting untuk retail business.',
-    category: 'Web System',
-    categoryColor: 'bg-cyan-500/20 text-cyan-400',
-    date: 'Agu 2024',
-    techStack: ['Laravel', 'Vue.js', 'MySQL', 'Redis', 'Pusher']
   }
 ]
 
@@ -514,10 +469,8 @@ const submitForm = () => {
 }
 
 const viewProjectDetail = (slug) => {
-  // Navigate to project detail page
-  // In a real app, this would use router.push or window.location
-  console.log('Navigating to project:', slug)
-  // Example: router.push(`/projects/${slug}`)
+  // Navigate to project detail page using Inertia router
+  router.visit(`/projects/${slug}`)
 }
 
 onMounted(() => {
