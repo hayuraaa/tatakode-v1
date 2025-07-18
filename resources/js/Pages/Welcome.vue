@@ -419,28 +419,28 @@ const services = [
     icon: 'code',
     title: 'Website Development',
     description: 'Frontend, Backend, eCommerce, UMKM, Admin Panel',
-    features: ['PHP/Laravel', 'Python', 'Database Design', 'API Integration'],
+    features: ['E-Commerce', 'Admin Panel', 'Landing Page', 'API Integration', 'Custom Web'],
     color: 'from-blue-500 to-cyan-500'
   },
   {
     icon: 'chart',
     title: 'Data & AI Solutions',
     description: 'Data Processing, AI/ML, Dashboard, Web Scraping, Automation',
-    features: ['Data Visualization', 'Machine Learning', 'Image Processing', 'Web Scraping'],
+    features: ['Classification', 'Forecasting', 'Image Processing', 'Clustering', 'NLP/Sentiment Analysis'],
     color: 'from-green-500 to-emerald-500'
   },
   {
     icon: 'design',
     title: 'Design Services',
     description: 'UI/UX Design, Social Media Graphics, Poster, Branding',
-    features: ['UI/UX Design', 'Social Media Feed', 'Poster Design', 'Brand Identity'],
+    features: ['UI/UX Design', 'Social Media Feed', 'Poster Design', 'Brand Identity', 'Logo Design'],
     color: 'from-purple-500 to-pink-500'
   },
   {
     icon: 'graduation',
     title: 'Academic Support',
     description: 'Bantuan Skripsi, Jurnal, Tugas Akhir IT',
-    features: ['Research Guidance', 'Code Review', 'Documentation', 'Presentation'],
+    features: ['Research Guidance', 'Code Review', 'Documentation', 'Presentation', 'Thesis Writing'],
     color: 'from-orange-500 to-red-500'
   }
 ]

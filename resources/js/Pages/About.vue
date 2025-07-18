@@ -15,10 +15,273 @@
       </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="py-16 px-4">
-      <div class="container mx-auto max-w-4xl">
-        <!-- Our Story -->
+    <!-- Services Section -->
+    <section class="py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <!-- Service Cards with Enhanced Layout -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16">
+          <!-- Website Development -->
+          <div class="group relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 hover:scale-[1.02] transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">Website Development</h3>
+                  <p class="text-blue-300">Frontend, Backend, eCommerce, UMKM, Admin Panel</p>
+                  <div class="mt-2">
+                    <span class="text-sm text-blue-200">Start from </span>
+                    <span class="text-lg font-semibold text-white">Rp 500K</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Service Description -->
+              <div class="mb-6">
+                <p class="text-white/70 text-sm leading-relaxed">
+                  Kami mengembangkan website modern dan responsif menggunakan teknologi terkini. 
+                  Dari landing page sederhana hingga e-commerce kompleks dengan sistem manajemen yang lengkap. 
+                  Semua website dilengkapi dengan admin panel untuk kemudahan pengelolaan konten.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">UMKM Digital - Website untuk usaha kecil dan menengah</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Admin Panel - Dashboard untuk mengelola konten dan data</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Landing Page - Website profil perusahaan yang menarik</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">API Integration - Integrasi dengan sistem external</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Custom Web - Aplikasi web sesuai kebutuhan spesifik</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data & AI Solutions -->
+          <div class="group relative overflow-hidden bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-8 hover:scale-[1.02] transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">Data & AI Solutions</h3>
+                  <p class="text-green-300">Data Processing, AI/ML, Dashboard, Web Scraping, Automation</p>
+                  <div class="mt-2">
+                    <span class="text-sm text-green-200">Start from </span>
+                    <span class="text-lg font-semibold text-white">Rp 500K</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Service Description -->
+              <div class="mb-6">
+                <p class="text-white/70 text-sm leading-relaxed">
+                  Solusi berbasis data dan kecerdasan buatan untuk mengoptimalkan bisnis Anda. 
+                  Dari analisis data sederhana hingga machine learning yang kompleks, kami membantu 
+                  mengubah data mentah menjadi insight yang actionable untuk pengambilan keputusan.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Classification - Pengelompokan data otomatis menggunakan AI</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Forecasting - Prediksi tren dan pattern untuk masa depan</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Image Processing - Analisis dan pengolahan gambar dengan AI</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Clustering - Segmentasi data untuk analisis yang lebih baik</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">NLP/Sentiment Analysis - Analisis teks dan sentimen otomatis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Services -->
+          <div class="group relative overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl p-8 hover:scale-[1.02] transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 21h12a2 2 0 002-2v-4a2 2 0 00-2-2H7m0-5h10a2 2 0 012 2v1a2 2 0 01-2 2H7m0 0V9a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">Design Services</h3>
+                  <p class="text-purple-300">UI/UX Design, Social Media Graphics, Poster, Branding</p>
+                  <div class="mt-2">
+                    <span class="text-sm text-purple-200">Start from </span>
+                    <span class="text-lg font-semibold text-white">Rp 300K</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Service Description -->
+              <div class="mb-6">
+                <p class="text-white/70 text-sm leading-relaxed">
+                  Layanan desain kreatif yang membantu membangun identitas visual yang kuat untuk brand Anda. 
+                  Dari desain UI/UX yang user-friendly hingga materi marketing yang eye-catching, 
+                  kami menciptakan desain yang tidak hanya indah tapi juga efektif.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">UI/UX Design - Desain interface yang intuitif dan user-friendly</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Social Media Feed - Konten visual untuk media sosial</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Poster Design - Desain poster untuk event dan promosi</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Brand Identity - Logo dan identitas visual yang konsisten</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Logo Design - Desain logo yang memorable dan timeless</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Support -->
+          <div class="group relative overflow-hidden bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-2xl p-8 hover:scale-[1.02] transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-white">Academic Support</h3>
+                  <p class="text-orange-300">Bantuan Skripsi, Jurnal, Tugas Akhir IT</p>
+                  <div class="mt-2">
+                    <span class="text-sm text-orange-200">Start from </span>
+                    <span class="text-lg font-semibold text-white">Rp 500K</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Service Description -->
+              <div class="mb-6">
+                <p class="text-white/70 text-sm leading-relaxed">
+                  Dukungan akademik lengkap untuk mahasiswa IT dalam menyelesaikan tugas akhir. 
+                  Dari konsultasi metodologi penelitian hingga implementasi teknis, kami membantu 
+                  memastikan project akademik Anda berkualitas tinggi dan sesuai standar.
+                </p>
+              </div>
+
+              <!-- Features Grid -->
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Research Guidance - Bimbingan metodologi dan riset</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Code Review - Review dan optimasi kode program</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Documentation - Pembuatan dokumentasi teknis yang lengkap</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Presentation - Persiapan presentasi dan defense</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm text-white/90">Thesis Writing - Bantuan penulisan laporan tugas akhir</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8 mb-12">
           <h2 class="text-3xl font-bold text-white mb-6">Our Story</h2>
           <p class="text-white/70 text-lg leading-relaxed mb-6">
@@ -29,60 +292,6 @@
             Dengan pengalaman bertahun-tahun dalam industri teknologi, kami menghadirkan solusi yang tidak hanya fungsional, 
             tetapi juga user-friendly dan scalable untuk masa depan.
           </p>
-        </div>
-
-        <!-- What We Do -->
-        <div class="bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg p-8 mb-12">
-          <h2 class="text-3xl font-bold text-white mb-6">What We Do</h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">Website Development</h3>
-                <p class="text-white/70">Kami mengembangkan website modern dan responsif mulai dari frontend yang interaktif menggunakan teknologi terbaru, hingga backend yang kuat dan skalable untuk memenuhi kebutuhan bisnis Anda.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2-2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">Data & AI Solutions</h3>
-                <p class="text-white/70">Solusi komprehensif untuk transformasi data bisnis Anda menjadi insights yang actionable. Kami menggabungkan data, AI, dan teknologi terbaru untuk meningkatkan efisiensi dan kinerja bisnis Anda.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">Design Services</h3>
-                <p class="text-white/70">Layanan desain visual yang komprehensif untuk membangun identitas brand yang kuat dan komunikasi visual yang efektif. Kami menggabungkan desain, interaksi, dan teknologi untuk menciptakan pengalaman visual yang memukau.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold text-white mb-2">Academic Support</h3>
-                <p class="text-white/70">Pendampingan akademik khusus untuk mahasiswa IT yang sedang menyelesaikan studi akhir mereka. Kami menyediakan layanan dan sumber daya untuk membantu mereka mencapai tujuan mereka.</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Our Values -->
@@ -131,8 +340,10 @@
             Get In Touch
           </a>
         </div>
+
       </div>
     </section>
+    
   </AppLayout>
 </template>
 
