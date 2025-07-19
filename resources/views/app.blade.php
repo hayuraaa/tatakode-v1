@@ -7,12 +7,7 @@
         <title inertia>{{ config('app.name', 'Tatakode') }}</title>
 
         <!-- Favicon - Multiple formats for better browser support -->
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="shortcut icon" href="/logo-1.png" type="image/x-icon">
         
         <!-- Meta theme color -->
         <meta name="theme-color" content="#0f172a">

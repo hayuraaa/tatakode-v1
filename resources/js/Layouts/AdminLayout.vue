@@ -66,9 +66,12 @@ onUnmounted(() => {
                 <!-- Logo Section -->
                 <div class="flex items-center justify-between h-16 lg:h-20 px-6 border-b border-slate-100">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold text-lg">T</span>
-                        </div>
+                        <img 
+                            src="/tatakode.png" 
+                            alt="Tatakode Logo" 
+                            class="w-10 h-10 object-cover rounded-xl shadow-sm flex-shrink-0"
+                        />
+
                         <!-- Fixed: Only show text when sidebar is expanded -->
                         <div v-if="showingSidebar" class="min-w-0">
                             <h2 class="text-xl font-bold text-slate-800 truncate">Tatakode</h2>

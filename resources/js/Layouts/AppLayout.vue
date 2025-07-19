@@ -5,9 +5,12 @@
       <div class="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
+            <img 
+              src="/logo-1.png" 
+              alt="Tatakode Logo" 
+              class="w-8 h-8 rounded-lg object-cover shadow-sm"
+            />
+
           </div>
           <span class="text-xl font-bold text-white">Tatakode</span>
         </a>
